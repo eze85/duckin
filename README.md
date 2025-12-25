@@ -1,5 +1,6 @@
 # Duckin v1.5
 #### Description: It's a reposity that has a sketch for programming your arduino pro micro or any similar board as a rubber ducky.
+#### Note: It supports many keyboard languages.
 #### It works for the boards:
 <img width="250" height="225" alt="image" src="https://github.com/user-attachments/assets/20534d82-635c-45e0-8e69-11e684791b7d" />
 <img width="250" height="225" alt="image" src="https://github.com/user-attachments/assets/b17c886d-fd4c-4c85-9f6c-2064158366b3" />
