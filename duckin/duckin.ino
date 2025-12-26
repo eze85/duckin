@@ -1,21 +1,44 @@
-// This project is in the version 1.5. 
-// It's enough to be run on your arduino leonardo's or pro micro. It can also be in some of the atmega32u4 boards like the beetle leonardo one.
-// It allows you to program these boards like a rubberducky; using duckyscript as functions we have in arduino ide.
+// Duckin version 1.6. 
+// What's new? Payloads, Definitions, better organisation.
+// Note: You can still use "keyboard.h" functions it will work well.
+// Purpose: It allows you to program these boards like a rubberducky; using duckyscript as functions we have in arduino ide.
 #include <Keyboard.h>
 #include <Keyboard_es_ES.h> // I include the keyboard layout I want to use.
 
 // We define the start and stop keyboard main functions...
-#define STARTKEYBOARD() Keyboard.begin()
-#define STOPKEYBOARD()  Keyboard.end()
+#define START_KEYBOARD() Keyboard.begin()
+#define STOP_KEYBOARD()  Keyboard.end()
+#define DEFAULT_DELAY() INITIALDELAY()
+
+// Global variables that helps you.
+#define GUI KEY_LEFT_GUI
+#define WINDOWS KEY_LEFT_GUI
+
+// Here comes where you have to write...
+void setup() {
+  START_KEYBOARD(); // We start the keyboard...
+  INITIALDELAY(); // The default delay for the bad usb...
+  // Here comes your DuckyScriptCode.
+  OPEN_POWERSHELL_WINDOWS();
+  STRING_LINE("systeminfo");
+  STOP_KEYBOARD(); // We end the keyboard...
+}
+
+void loop(){} // You must leave this empty...
+
 
 
 // The main functions the program need for running...
-void STRING(const char* text){
+void STRING(const char* text){ // The normal string function
   Keyboard.print(text);
 };
 
+void STRING_LINE(const char* text){ // The string + enter function
+  Keyboard.println(text);
+};
+
 void INITIALDELAY(){
-  DELAY(3000);
+  DELAY(5000); // 5 seconds.
 };
 
 void DELAY(int miliseconds){
@@ -272,19 +295,35 @@ void F12() {
   DELAY(50);
 };
 
-
-// Here comes where you have to write...
-void setup() {
-  STARTKEYBOARD(); // We start the keyboard...
-  INITIALDELAY(); // The default delay for the bad usb...
-  // Here comes your DuckyScriptCode.
+// Payloads...
+void OPEN_CMD_WINDOWS(){
+  DELAY(50);
   WINDOWSR();
-  STRING("powershell.exe");
-  ENTER();
-  DELAY(4000);
-  STRING("echo Hello world from atmega32u4");
-  ENTER();
-  STOPKEYBOARD(); // We end the keyboard...
-}
+  STRING_LINE("cmd.exe");
+  DEFAULT_DELAY();
+};
 
-void loop(){} // You must leave this empty...
+void OPEN_POWERSHELL_WINDOWS(){
+  DELAY(50);
+  WINDOWSR();
+  STRING_LINE("powershell.exe");
+  DEFAULT_DELAY();
+};
+
+void OPEN_POWERSHELL_UAC_WINDOWS(){
+  WINDOWSR();
+  STRING_LINE("powershell -Command Start-Process PowerShell -Verb RunAs");
+  DELAY(4000); // 4 seconds
+  LEFTARROW();
+  ENTER();
+  DEFAULT_DELAY();
+};
+
+void LOCK_SCREEN_WINDOWS(){
+  DELAY(50);
+  Keyboard.press(GUI);
+  DELAY(50);
+  Keyboard.press('l');
+  DELAY(50);
+  Keyboard.releaseAll();
+};
