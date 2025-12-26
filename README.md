@@ -1,11 +1,10 @@
 # Duckin v1.6
-#### Update: 
-#### Version 1.6: It comes with new Payloads, Definitions and a better organisation.
-#### Version 1.5: It has the complete keyboard and almost all the duckyscript commands are avaible.
-#### Version 1.0: It has the STRING function and can switch between diferent keyboard languages.
-
 #### Description: It's a reposity that has a sketch for programming your arduino pro micro or any similar board as a rubber ducky.
 #### Note: It supports many keyboard languages.
+#### Updates: 
+### Version 1.6: It comes with new Payloads, Definitions and a better organisation.*
+#### Version 1.5: It has the complete keyboard and almost all the duckyscript commands are avaible.
+#### Version 1.0: It has the STRING function and can switch between diferent keyboard languages.
 #### It works for the boards:
 <img width="250" height="225" alt="image" src="https://github.com/user-attachments/assets/20534d82-635c-45e0-8e69-11e684791b7d" />
 <img width="250" height="225" alt="image" src="https://github.com/user-attachments/assets/b17c886d-fd4c-4c85-9f6c-2064158366b3" />
