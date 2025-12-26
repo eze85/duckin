@@ -1,6 +1,5 @@
 # Duckin v1.6
-#### Update:
-#### Payloads, Definitions, better organisation.
+#### Update: It comes with Payloads, Definitions, better organisation.
 
 #### Description: It's a reposity that has a sketch for programming your arduino pro micro or any similar board as a rubber ducky.
 #### Note: It supports many keyboard languages.
